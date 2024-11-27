@@ -1,0 +1,426 @@
+/* Reset e estilo geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #c0392b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav .btn:hover {
+    background-color: #c0392b;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo principal */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+main .btn {
+    display: inline-block;
+    margin: 10px 10px;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+main .btn:hover {
+    background-color: #1e8449;
+}
+
+/* Formulários */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.5);
+}
+
+form button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1e8449;
+}
+
+form a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #27ae60;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #1e8449;
+}
+
+form .error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Cardápio */
+.categorias,
+.itens {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categorias h2,
+.itens h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.categorias .categoria-btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categorias .categoria-btn:hover {
+    background-color: #2980b9;
+}
+
+.itens #itens-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.item p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.item .preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.item .btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item .btn:hover {
+    background-color: #1e8449;
+}
+
+/* Tabela de Pedido */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+table td img {
+    max-width: 50px;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.btn-remover, .btn-adicionar, .btn-excluir {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-remover:hover {
+    background-color: #c0392b;
+}
+
+.btn-adicionar {
+    background-color: #27ae60;
+}
+
+.btn-adicionar:hover {
+    background-color: #1e8449;
+}
+
+.item-detalhes {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.item-detalhes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.item-detalhes h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.item-detalhes .descricao {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.item-detalhes .categoria {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.item-detalhes .preco {
+    font-size: 1.5rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+.item-detalhes form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-detalhes form input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.item-detalhes form button {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.item-detalhes form button:hover {
+    background-color: #1e8449;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav .btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .item img {
+        height: 120px;
+    }
+
+    .categorias,
+    .itens {
+        padding: 15px;
+    }
+
+    .itens #itens-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

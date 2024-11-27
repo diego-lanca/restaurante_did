@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Item -
+        <?php echo htmlspecialchars($item['nome']); ?>
+    </title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Detalhes do Produto</h1>
+        <nav>
+            <a href="cardapio.php" class="btn">Voltar ao Cardápio</a>
+            <a href="pedido_view.php" class="btn">Meu Pedido</a>
+            <a href="../scripts/logout.php" class="btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="item-detalhes">
+            <?php if ($item['imagem_path']): ?>
+            <img src="<?= htmlspecialchars($item['imagem_path']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>">
+            <?php else: ?>
+            <img src="../assets/images/placeholder.png" alt="Imagem não disponível">
+            <?php endif; ?>
+            <h2>
+                <?php echo htmlspecialchars($item['nome']); ?>
+            </h2>
+            <p class="descricao">
+                <?php echo htmlspecialchars($item['descricao']); ?>
+            </p>
+            <p class="categoria"><strong>Categoria: </strong>
+                <?php echo htmlspecialchars($item['Categoria']); ?>
+            </p>
+            <p class="preco"><strong>Preço:</strong> R$
+                <?php echo number_format($item['preco'], 2, ',', '.'); ?>
+            </p>
+
+            <form action="../scripts/add_to_cart.php" method="POST">
+                <input type="hidden" name="item_id" value="<?php echo $item['id']; ?>">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" value="1" min="1" required>
+                <button type="submit" class="btn">Adicionar ao Pedido</button>
+            </form>
+        </div>
+    </main>
+
+    <?php include '../includes/footer.php'; ?>
+</body>
+
+</html>

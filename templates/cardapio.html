@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Cardápio</title>
+</head>
+
+<body>
+    <header>
+        <h1>Cardápio</h1>
+        <nav>
+            <a href="cardapio.php" class="btn">Cardápio</a>
+            <a href="../pages/pedido_view.php" class="btn">Meu Pedido</a>
+            <a href="../scripts/logout.php" class="btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Categorias -->
+        <section class="categorias">
+            <h2>Categorias</h2>
+            <ul id="categorias-list">
+                <button class="categoria-btn" data-categoria-id="todas">Todas</button>
+                <?php foreach ($categorias as $categoria): ?>
+                <button class="categoria-btn" data-categoria-id="<?= $categoria['id']; ?>">
+                    <?= htmlspecialchars($categoria['nome']); ?>
+                </button>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+
+        <!-- Itens do Cardápio -->
+        <section class="itens">
+            <h2>Itens do Cardápio</h2>
+            <div id="itens-list">
+                <?php foreach ($itensFiltrados as $item): ?>
+                <a href="detalhes_item.php?id=<?php echo $item['id']; ?>">
+                    <div class="item" data-categoria-id="<?= htmlspecialchars($item['idCategoria']); ?>">
+                        <?php if ($item['imagem_path']): ?>
+                        <img src="<?= htmlspecialchars($item['imagem_path']); ?>"
+                            alt="<?= htmlspecialchars($item['nome']); ?>">
+                        <?php else: ?>
+                        <img src="../assets/images/placeholder.png" alt="Imagem não disponível">
+                        <?php endif; ?>
+                        <h3>
+                            <?= htmlspecialchars($item['nome']); ?>
+                        </h3>
+                    </div>
+                </a>
+                <?php endforeach; ?>
+            </div>
+
+        </section>
+    </main>
+    <?php include '../includes/footer.php'; ?>
+    <script src="../scripts/add_to_cart.js"></script>
+    <script>
+        // Seleciona os botões de categoria
+        const categoriaBotoes = document.querySelectorAll('.categoria-btn');
+
+        // Adiciona o evento de clique para redirecionar com o parâmetro da categoria
+        categoriaBotoes.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const categoriaId = botao.getAttribute('data-categoria-id');
+                // Redireciona para a URL com o parâmetro da categoria
+                window.location.href = `?categoria=${categoriaId}`;
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

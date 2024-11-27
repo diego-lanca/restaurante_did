@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+<header>
+    <h1>Bem-vindo ao Restaurante Did</h1>
+</header>
+<main>
+    <form method="POST" action="../pages/login.php">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" required>
+        
+        <button type="submit">Entrar</button>
+    </form>
+    <p><a href="cadastro.php">Não tem uma conta? Cadastre-se</a></p>
+    <?php if (!empty($error)): ?>
+        <p class="error"><?= $error ?></p>
+    <?php endif; ?>
+</main>
+<?php include '../includes/footer.php'; ?>
+</body>
+</html>

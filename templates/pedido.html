@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Pedido</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Resumo do Pedido</h1>
+        <nav>
+            <a href="cardapio.php" class="btn">Cardápio</a>
+            <a href="../pages/pedido_view.php" class="btn">Meu Pedido</a>
+            <a href="../scripts/logout.php" class="btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <?php if (empty($itens_pedido)): ?>
+        <p>Você não tem itens no seu pedido.</p>
+        <?php else: ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Item</th>
+                    <th>Quantidade</th>
+                    <th>Preço Unitário</th>
+                    <th>Total</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($itens_pedido as $item): ?>
+                <tr>
+                    <td>
+                        <img src="../assets/images/<?php echo gerarNomeImagem($item['item_nome']); ?>"
+                            alt="Imagem do produto" class="item-img"
+                            style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                    </td>
+                    <td>
+                        <?php echo $item['item_nome']; ?>
+                    </td>
+                    <td>
+                        <button class="btn-remover" data-item="<?php echo $item['item_nome']; ?>" quantity="<?php echo $item['quantidade']; ?>">-</button>
+                        <?php echo $item['quantidade']; ?>
+                        <button class="btn-adicionar" data-item="<?php echo $item['item_nome']; ?>">+</button>
+                    </td>
+                    <td>R$
+                        <?php echo number_format($item['preco'], 2, ',', '.'); ?>
+                    </td>
+                    <td>R$
+                        <?php echo number_format($item['total_item'], 2, ',', '.'); ?>
+                    </td>
+                    <td>
+                        <button class="btn-excluir" data-item="<?php echo $item['item_nome']; ?>">X</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <h3>Total do Pedido: R$
+            <?php echo number_format($total_pedido, 2, ',', '.'); ?>
+        </h3>
+        <form method="POST" action="../scripts/buy.php">
+            <button id="finalizarPedidoBtn" class="btn" type="submit">Finalizar Pedido</button>
+        </form>
+
+        <!-- Área para a mensagem de sucesso -->
+        <div id="sucessoMsg" style="display:none; color: green; font-weight: bold;">Pedido Concluído com Sucesso!</div>
+
+        <!-- Área de carregamento -->
+        <div id="loadingMsg" style="display:none; color: blue;">Finalizando... Aguarde.</div>
+        <?php endif; ?>
+    </main>
+    <script src="../scripts/buy.js"></script>
+    <script src="../scripts/delete_item.js"></script>
+    <script src="../scripts/add_quantity.js"></script>
+    <script src="../scripts/remove_quantity.js"></script>
+
+
+
+    <?php include '../includes/footer.php'; ?>
+</body>
+
+</html>
