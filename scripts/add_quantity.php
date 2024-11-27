@@ -6,7 +6,6 @@ if (isset($_POST['item_nome']) && isset($_SESSION['user_id'])) {
     $item_nome = $_POST['item_nome'];
     $user_id = $_SESSION['user_id'];
 
-    // Consulta para incrementar a quantidade
     $query = "
         UPDATE tb_itens_pedido ip
         JOIN tb_itens i ON ip.idItem = i.id

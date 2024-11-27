@@ -1,14 +1,7 @@
 <?php
-// Ativar a exibição de erros
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?>
-
-<?php
 session_start();
 require_once '../includes/db_connect.php';
 
-// Verifica se o item foi fornecido na URL
 if (!isset($_GET['id'])) {
     header('Location: cardapio.php');
     exit;
@@ -16,7 +9,6 @@ if (!isset($_GET['id'])) {
 
 $item_id = $_GET['id'];
 
-// Consulta para obter os detalhes do item
 $query = "SELECT i.id, i.nome, descricao, preco, idCategoria, i.imagem_path, c.nome as Categoria
     FROM tb_itens i
     JOIN tb_categoria c

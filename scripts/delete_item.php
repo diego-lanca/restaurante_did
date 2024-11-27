@@ -6,7 +6,6 @@ if (isset($_POST['item_nome']) && isset($_SESSION['user_id'])) {
     $item_nome = $_POST['item_nome'];
     $user_id = $_SESSION['user_id'];
 
-    // Consulta para excluir o item
     $query = "
         DELETE ip
         FROM tb_itens_pedido ip

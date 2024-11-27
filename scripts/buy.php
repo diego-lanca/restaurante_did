@@ -1,8 +1,7 @@
 <?php
 session_start();
-require_once '../includes/db_connect.php';  // Certifique-se de que o caminho esteja correto
+require_once '../includes/db_connect.php';
 
-// Verificar se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(["error" => "Usuário não está logado."]);
     exit;

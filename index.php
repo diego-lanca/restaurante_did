@@ -2,7 +2,6 @@
 include './includes/db_connect.php';
 session_start();
 
-// Verificar se o usuário está logado
 $is_logged_in = isset($_SESSION['user_id']);
 ?>
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ $is_logged_in = isset($_SESSION['user_id']);
         <p>Experimente nossas deliciosas receitas e faça seu pedido online!</p>
 
         <?php if ($is_logged_in): ?>
-            <p>Olá, <strong>Usuário</strong>! (Exemplo: Pegue o nome do banco, se necessário.)</p>
+            <p>Olá, <strong>Usuário</strong>!</p>
             <a href="./pages/cardapio.php" class="btn">Ver Cardápio</a>
             <a href="./pages/logout.php" class="btn">Sair</a>
         <?php else: ?>

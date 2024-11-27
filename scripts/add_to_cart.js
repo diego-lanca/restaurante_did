@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach(button => {
         button.addEventListener("click", function (event) {
-            event.preventDefault(); // Previne o comportamento padrão, como recarregar a página
+            event.preventDefault(); // Previne recarregar a página
             
             const itemId = this.getAttribute("data-id");
 
@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success') {
-                        alert(data.message); // Exibe mensagem de sucesso
+                        alert(data.message);
                     } else {
-                        alert(`Erro: ${data.message}`); // Exibe mensagem de erro
+                        alert(`Erro: ${data.message}`);
                     }
                 })
                 .catch(error => {

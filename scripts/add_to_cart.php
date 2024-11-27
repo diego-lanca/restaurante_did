@@ -2,25 +2,22 @@
 session_start();
 require_once '../includes/db_connect.php';
 
-// Configurações de cabeçalho
 header('Content-Type: application/json');
 
-// Captura o ID do item e a quantidade enviados pelo formulário
 if (!isset($_POST['item_id']) || !isset($_POST['quantidade']) || !isset($_SESSION['user_id'])) {
     echo json_encode(['status' => 'error', 'message' => 'Dados insuficientes para processar o pedido.']);
     exit();
 }
 
-$item_id = intval($_POST['item_id']); // Validação básica do ID do item
-$quantidade = intval($_POST['quantidade']); // Captura a quantidade enviada
-$user_id = $_SESSION['user_id']; // ID do usuário logado
+$item_id = intval($_POST['item_id']);
+$quantidade = intval($_POST['quantidade']);
+$user_id = $_SESSION['user_id'];
 
 if ($quantidade <= 0) {
     echo json_encode(['status' => 'error', 'message' => 'Quantidade inválida.']);
     exit();
 }
 
-// Verifica se o item já está no pedido
 $querySelect = "
     SELECT idItem, quantidade
     FROM tb_itens_pedido

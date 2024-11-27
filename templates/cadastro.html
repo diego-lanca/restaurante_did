@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Cadastro</title>
 </head>
+
 <body>
-<header>
-    <h1>Cadastro</h1>
-</header>
-<main>
-    <form method="POST" action="../pages/cadastro.php">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" required>
-        
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" required>
-        
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" required>
-        
-        <button type="submit">Cadastrar</button>
-    </form>
-    <p><a href="login.php">Já tem uma conta? Faça login</a></p>
-    <?php if (!empty($error)): ?>
-        <p class="error"><?= $error ?></p>
-    <?php endif; ?>
-</main>
-<?php include '../includes/footer.php'; ?>
+    <header>
+        <h1>Cadastro</h1>
+    </header>
+    <main>
+        <form method="POST" action="../pages/cadastro.php">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" required>
+
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" id="cep" required>
+
+            <label for="rua">Rua</label>
+            <input type="text" name="rua" id="rua" required>
+
+            <label for="numero">Numero</label>
+            <input type="number" name="rua" id="rua" required>
+
+            <label for="bairro">Bairro</label>
+            <input type="text" name="bairro" id="bairro" required>
+
+            <label for="complemento">Complemento</label>
+            <input type="text" name="complemento" id="complemento">
+
+            <label for="cidade">Cidade</label>
+            <input type="text" name="cidade" id="cidade" required>
+
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" pattern="[A-Za-z]{2}" required
+                title="Digite 2 caracteres para o estado">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p><a href="login.php">Já tem uma conta? Faça login</a></p>
+        <?php if (!empty($error)): ?>
+        <p class="error">
+            <?= $error ?>
+        </p>
+        <?php endif; ?>
+    </main>
+    <?php include '../includes/footer.php'; ?>
 </body>
+
 </html>
